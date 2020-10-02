@@ -64,11 +64,11 @@ jobs:
           cf target -o "$CF_ORG" -s "$CF_SPACE"
           cf push -f ./manifest-allocations.yml -p ./pal-tracker-distributed/allocations-server.jar
         env:
-          CF_API_URL: ${{ secrets.CF_API_URL }}
-          CF_ORG: ${{ secrets.CF_ORG }}
-          CF_SPACE: ${{ secrets.CF_SPACE }}
-          CF_USERNAME: ${{ secrets.CF_USERNAME }}
-          CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+            CF_API_URL: https://api.sys.evans.pal.pivotal.io
+            CF_ORG: psrikara.ford.com
+            CF_SPACE: sandbox
+            CF_USERNAME: psrikara@ford.com
+            CF_PASSWORD: 53net2je
 
   deploy-backlog:
     needs: build-and-publish
@@ -92,11 +92,11 @@ jobs:
           cf target -o "$CF_ORG" -s "$CF_SPACE"
           cf push -f ./manifest-backlog.yml -p ./pal-tracker-distributed/backlog-server.jar
         env:
-          CF_API_URL: ${{ secrets.CF_API_URL }}
-          CF_ORG: ${{ secrets.CF_ORG }}
-          CF_SPACE: ${{ secrets.CF_SPACE }}
-          CF_USERNAME: ${{ secrets.CF_USERNAME }}
-          CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+            CF_API_URL: https://api.sys.evans.pal.pivotal.io
+            CF_ORG: psrikara.ford.com
+            CF_SPACE: sandbox
+            CF_USERNAME: psrikara@ford.com
+            CF_PASSWORD: 53net2je
 
   deploy-registration:
     needs: build-and-publish
@@ -120,11 +120,11 @@ jobs:
           cf target -o "$CF_ORG" -s "$CF_SPACE"
           cf push -f ./manifest-registration.yml -p ./pal-tracker-distributed/registration-server.jar
         env:
-          CF_API_URL: ${{ secrets.CF_API_URL }}
-          CF_ORG: ${{ secrets.CF_ORG }}
-          CF_SPACE: ${{ secrets.CF_SPACE }}
-          CF_USERNAME: ${{ secrets.CF_USERNAME }}
-          CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+            CF_API_URL: https://api.sys.evans.pal.pivotal.io
+            CF_ORG: psrikara.ford.com
+            CF_SPACE: sandbox
+            CF_USERNAME: psrikara@ford.com
+            CF_PASSWORD: 53net2je
 
   deploy-timesheets:
     needs: build-and-publish
@@ -176,7 +176,7 @@ jobs:
           cf target -o "$CF_ORG" -s "$CF_SPACE"
           ./gradlew cfMigrate
         env:
-          CF_API_URL: https://api.sys.evans.pal.pivotal.io
+            CF_API_URL: https://api.sys.evans.pal.pivotal.io
             CF_ORG: psrikara.ford.com
             CF_SPACE: sandbox
             CF_USERNAME: psrikara@ford.com
